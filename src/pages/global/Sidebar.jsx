@@ -136,7 +136,7 @@ const Sidebar = () => {
 
               <Item
                 title="All Patients"
-                to="/dashboard/team"
+                to="/dashboard/patients"
                 icon={<PeopleOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
@@ -150,7 +150,7 @@ const Sidebar = () => {
               />
               <Item
                 title="Patient Records"
-                to="/dashboard/invoices"
+                to="/dashboard/patient_records"
                 icon={<ReceiptOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}

@@ -1,8 +1,9 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { tokens } from "../../theme";
-import { mockDataInvoices } from "../../data/mockData";
-import Header from "../../components/Header";
+import { tokens } from "../../../theme";
+import { mockDataInvoices } from "../../../data/mockData";
+import Header from "../../../components/Header";
+import { MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 
 const Invoices = () => {
   const theme = useTheme();
@@ -21,25 +22,40 @@ const Invoices = () => {
       flex: 1,
     },
     {
-      field: "email",
-      headerName: "Email",
-      flex: 1,
-    },
-    {
-      field: "cost",
-      headerName: "Cost",
-      flex: 1,
-      renderCell: (params) => (
-        <Typography color={colors.greenAccent[500]}>
-          ${params.row.cost}
-        </Typography>
-      ),
-    },
-    {
       field: "date",
-      headerName: "Date",
+      headerName: "DOB",
       flex: 1,
     },
+    {
+      field: "email",
+      headerName: "Disease/Symptoms",
+      flex: 1,
+    },
+    {
+      field: "action",
+      headerName: "Action",
+      flex: 1,
+      renderCell: () => {
+        return (
+          <FormControl fullWidth>
+            {/* <InputLabel id="demo-simple-select-label">Age</InputLabel> */}
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={10}
+            // label="Age"
+            // onChange={handleChange}
+            >
+              <MenuItem value={10}>Medical file</MenuItem>
+              <MenuItem value={20}>Archive</MenuItem>
+              <MenuItem value={30}>Send to Doc</MenuItem>
+            </Select>
+          </FormControl>
+        );
+      }
+    },
+
+
   ];
 
   return (
